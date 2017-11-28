@@ -1,16 +1,25 @@
 package com.onyx.proceduresapp.data;
 
+import java.util.List;
+
 public class ProcedureDetail {
     private String id;
 
     private String name;
 
-    private Phase[] phases;
+    private List<Phase> phases;
 
     private String icon;
 
     private String card;
 
+    public ProcedureDetail(String id, String name, List<Phase> phases, String icon, String card) {
+        this.id = id;
+        this.name = name;
+        this.phases = phases;
+        this.icon = icon;
+        this.card = card;
+    }
 
     public String getId() {
         return id;
@@ -28,11 +37,11 @@ public class ProcedureDetail {
         this.name = name;
     }
 
-    public Phase[] getPhases() {
+    public List<Phase> getPhases() {
         return phases;
     }
 
-    public void setPhases(Phase[] phases) {
+    public void setPhases(List<Phase> phases) {
         this.phases = phases;
     }
 

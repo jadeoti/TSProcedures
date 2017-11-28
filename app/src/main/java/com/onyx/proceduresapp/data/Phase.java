@@ -7,6 +7,11 @@ public class Phase {
 
     private String icon;
 
+    public Phase(String name, String icon) {
+        this.name = name;
+        this.icon = icon;
+    }
+
     public String getName() {
         return name;
     }
