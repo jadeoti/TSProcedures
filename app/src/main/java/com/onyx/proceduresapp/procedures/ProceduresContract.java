@@ -1,12 +1,29 @@
 package com.onyx.proceduresapp.procedures;
 
 
-public interface ProceduresContract {
-    interface View{
+import android.support.annotation.NonNull;
 
+import com.onyx.proceduresapp.data.Procedure;
+
+import java.util.List;
+
+/**
+ * Contracts specficies interaction between view and presenter
+ */
+public interface ProceduresContract {
+    interface View {
+
+        void showProgress(boolean active);
+
+        void showProcedures(List<Procedure> procedures);
+
+        void showPrecedureDetailUi(String procedureID);
     }
 
-    interface ActionsListener{
+    interface UserActionsListener {
 
+        void loadProcedures(boolean forceUpdate);
+
+        void openProceduresDetails(@NonNull Procedure procedure);
     }
 }
