@@ -9,4 +9,6 @@ import io.reactivex.Observable;
 
 public interface ProceduresRepository {
     Observable<List<Procedure>> getProcedures();
+
+    void refreshProcedures();
 }

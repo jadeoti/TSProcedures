@@ -17,6 +17,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -58,7 +59,7 @@ public class ProceduresPresenterTest {
 
 
     @Test
-    public void loadAllProceduresFromRepositoryIntoView() {
+    public void load_all_procedures_from_repository_into_view() {
         // Given an initialized ProceduresPresenter with initialized procedures
         when(mProceduresRepository.getProcedures()).thenReturn(Observable.just(PROCEDURES));
         // When loading of Procedures is requested
@@ -70,5 +71,18 @@ public class ProceduresPresenterTest {
         verify(mProceduresView).showProgress(false);
     }
 
+
+    @Test
+    public void click_on_procedure_shows_detail_ui() {
+        // Given a stubbed procedure
+        Procedure requestedProcedure =   new Procedure("procedure-TSC_LateralApproachHip",
+                "Lateral Approach to the Hip", "https://s3-eu-west-1.amazonaws.com/media-touchsurgery-dev/media/procedure/12/icon/icon.jpg");
+
+        // When open procedure details is requested
+        mProceduresPresenter.openProceduresDetails(requestedProcedure);
+
+        // Then procedure detail UI is shown
+        verify(mProceduresView).showPrecedureDetailUi(any(String.class));
+    }
 
 }
