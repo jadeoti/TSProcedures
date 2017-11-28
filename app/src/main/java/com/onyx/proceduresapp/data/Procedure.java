@@ -8,6 +8,12 @@ public class Procedure {
 
     private String icon;
 
+    public Procedure(String id, String name, String icon) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+    }
+
     public String getId() {
         return id;
     }
