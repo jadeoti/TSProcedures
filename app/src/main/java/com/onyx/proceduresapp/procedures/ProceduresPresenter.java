@@ -2,6 +2,7 @@ package com.onyx.proceduresapp.procedures;
 
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.onyx.proceduresapp.data.Procedure;
 import com.onyx.proceduresapp.data.repository.ProceduresRepository;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -53,6 +55,7 @@ public class ProceduresPresenter implements ProceduresContract.Presenter {
     @Override
     public void subscribe() {
         loadProcedures(false);
+        Log.d("PROC", "subscribe");
     }
 
     @Override
@@ -88,13 +91,19 @@ public class ProceduresPresenter implements ProceduresContract.Presenter {
                             mProceduresView.showProcedures(procedures);
                         }
 
-                        mProceduresView.showProgress(false);
-
                     }
-                }, new Consumer<Throwable>() {
+                }, new Consumer<Throwable>() { // on error
                     @Override
                     public void accept(Throwable throwable) throws Exception {
+                        Log.d("PROC", throwable.getMessage());
+                        //  treat error
 
+
+                    }
+                }, new Action() { // on complete
+                    @Override
+                    public void run() throws Exception {
+                        mProceduresView.showProgress(false);
                     }
                 });
 

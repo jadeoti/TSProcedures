@@ -1,6 +1,7 @@
 package com.onyx.proceduresapp.data.webservice;
 
 import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -16,6 +17,7 @@ public class ApiClient {
                 .client(new OkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
                         .setLenient().create()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         service = retrofit.create(ProcedureService.class);
