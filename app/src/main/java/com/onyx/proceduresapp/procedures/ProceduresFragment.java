@@ -1,6 +1,7 @@
 package com.onyx.proceduresapp.procedures;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import com.onyx.proceduresapp.R;
 import com.onyx.proceduresapp.data.Procedure;
 import com.onyx.proceduresapp.data.repository.ProceduresRepository;
 import com.onyx.proceduresapp.data.repository.datasource.RemoteDataSource;
+import com.onyx.proceduresapp.proceduredetails.ProcedureDetailActivity;
 import com.onyx.proceduresapp.util.schedulers.SchedulerProvider;
 
 import java.util.ArrayList;
@@ -117,9 +119,9 @@ public class ProceduresFragment extends Fragment implements ProceduresContract.V
 
     @Override
     public void showPrecedureDetailUi(String procedureID) {
-//        Intent intent = new Intent(getContext(), LessonDetailActivity.class);
-//        intent.putExtra(LessonDetailActivity.EXTRA_LESSON_ID, lesson.getId());
-//        startActivity(intent);
+        Intent intent = new Intent(getContext(), ProcedureDetailActivity.class);
+        intent.putExtra(ProcedureDetailActivity.EXTRA_PROC_ID, procedureID);
+        startActivity(intent);
 
     }
 

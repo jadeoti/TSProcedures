@@ -1,0 +1,44 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.onyx.proceduresapp.proceduredetails.ProcedureDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_height="192dp" />
+
+        <TextView
+            android:layout_margin="8dp"
+            android:id="@+id/procedure_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Procedure Name"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:layout_below="@id/card_image"
+            />
+
+        <LinearLayout
+            android:id="@+id/phases_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="?android:dividerHorizontal"
+            android:showDividers="middle"
+            android:dividerPadding="8dp"
+            android:layout_below="@+id/procedure_name">
+            <!--Quite a hack. This invisible layout shouldnt be here-->
+            <include layout="@layout/item_phase" android:visibility="gone"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

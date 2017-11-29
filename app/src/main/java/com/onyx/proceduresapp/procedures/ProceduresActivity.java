@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.onyx.proceduresapp.R;
+import com.onyx.proceduresapp.proceduredetails.ProcedureDetailFragment;
 
 public class ProceduresActivity extends AppCompatActivity {
 
@@ -19,8 +20,9 @@ public class ProceduresActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if (null == savedInstanceState) {
-            // Get the requested note id
+        ProceduresFragment procedureDetailFragment = (ProceduresFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.contentFrame);
+        if (null == procedureDetailFragment) {
             initFragment(ProceduresFragment.newInstance());
         }
     }

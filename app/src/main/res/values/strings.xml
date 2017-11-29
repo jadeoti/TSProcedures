@@ -3,5 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_procedures">ProceduresActivity</string>
+    <string name="title_activity_procedures">Procedures</string>
+    <string name="invalid_proc">Invalid Procedure</string>
+    <string name="title_activity_procedure_detail">Procedure Detail</string>
 </resources>
