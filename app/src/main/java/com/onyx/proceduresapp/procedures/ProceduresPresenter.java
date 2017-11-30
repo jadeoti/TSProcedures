@@ -97,7 +97,8 @@ public class ProceduresPresenter implements ProceduresContract.Presenter {
                     public void accept(Throwable throwable) throws Exception {
                         Log.d("PROC", throwable.getMessage());
                         //  treat error
-
+                        mProceduresView.showProgress(false);
+                        mProceduresView.showError();
 
                     }
                 }, new Action() { // on complete

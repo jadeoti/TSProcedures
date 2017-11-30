@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.onyx.proceduresapp.R;
@@ -61,6 +62,11 @@ public class ProceduresFragment extends Fragment implements ProceduresContract.V
 
     }
 
+    @Override
+    public void showError() {
+        Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
+
+    }
 
     @Nullable
     @Override
@@ -127,9 +133,10 @@ public class ProceduresFragment extends Fragment implements ProceduresContract.V
 
     @Override
     public void showEmpty() {
-        System.out.println("showing empty");
+        Toast.makeText(getContext(), "Empty response", Toast.LENGTH_SHORT).show();
 
     }
+
 
     public static Fragment newInstance() {
         return new ProceduresFragment();

@@ -20,6 +20,8 @@ public interface ProceduresContract {
         void showPrecedureDetailUi(String procedureID);
 
         void showEmpty();
+
+        void showError();
     }
 
     interface Presenter {
