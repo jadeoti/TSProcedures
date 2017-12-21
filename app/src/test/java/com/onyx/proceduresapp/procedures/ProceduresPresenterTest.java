@@ -50,7 +50,6 @@ public class ProceduresPresenterTest {
         // Get a reference to the class under test
         mProceduresPresenter = new ProceduresPresenter(mSchedulerProvider, mProceduresView, mProceduresRepository);
 
-        // We subscribe the procedures to 3, with one active and two completed
         PROCEDURES = Lists.newArrayList(new Procedure("procedure-TSC_PosteriorApproachHip",
                         "Posterior Approach to the Hip", "https://s3-eu-west-1.amazonaws.com/media-touchsurgery-dev/media/modules/PosteriorApproachHip/icon/100.jpg"),
                 new Procedure("procedure-TSC_LateralApproachHip",
